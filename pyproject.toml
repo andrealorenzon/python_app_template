@@ -1,0 +1,40 @@
+[tool.poetry]
+name = "app"
+version = "0.1.0"
+description = ""
+authors = ["Andrea Lorenzon <andrea.lorenzon@ceric-eric.eu>"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+black = {version = "^21.7b0", allow-prereleases = true}
+mypy = "^0.910"
+flake8 = "^3.9.2"
+flake8-print = "^4.0.0"
+pep8-naming = "^0.12.1"
+vulture = "^2.3"
+bandit = "^1.7.0"
+pytest-asyncio = "^0.15.1"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 100
+target-version = ["py39"]
+
+[tool.poetry.scripts]
+format = "scripts:format"
+reformat = "scripts:reformat"
+lint = "scripts:lint"
+
+[tool.mypy]
+allow_redefinition = true
+disallow_untyped_defs = true
+warn_unused_ignores = true
+
+[tool.vulture]
+min_confidence = 100
